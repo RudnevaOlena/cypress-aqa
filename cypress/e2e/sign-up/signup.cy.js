@@ -66,12 +66,6 @@ describe('SignUp form', () => {
 
   describe('Last Name field validation', () => {
 
-    // beforeEach(() => {
-    //   cy.openApp();
-    //   header.openSignUpModal();
-    //   signup.isSignUpFormVisible();
-    // })
-
     it('Valid input for Last Name', () => {
       cy.fixture('signUpLastNameData').then((data) => {
         data.validLastNames.forEach(lastName => {
@@ -187,7 +181,6 @@ describe('SignUp form', () => {
   })
 
   describe('Password field validation', () => {
-
     it('Valid password inputs', () => {
       cy.fixture('signUpPasswordData').then((data) => {
         data.validPasswords.forEach(password => {
@@ -203,9 +196,8 @@ describe('SignUp form', () => {
         });
 
       });
-    });
-
-    //spec sy
+    });  
+    
     it('Invalid password inputs', () => {
       cy.fixture('signUpPasswordData').then((data) => {
         data.invalidPasswords.forEach(({ value, error }) => {
@@ -268,7 +260,6 @@ describe('SignUp form', () => {
   });
 
   describe('Repeat Password field validation', () => {
-
     it('Valid re-entered password matches original one', () => {
       cy.fixture('signUpRepeatPasswordData').then((data) => {
         cy.log('Testing matching passwords');
@@ -347,7 +338,6 @@ describe('SignUp form', () => {
   });
 
   describe('Register button validation', () => {
-
     it('Successful registration redirects to garage and shows profile button', () => {
       cy.fixture('signUpUsers').then((data) => {
         const user = {
