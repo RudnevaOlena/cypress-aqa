@@ -4,8 +4,8 @@ describe('Footer elements', () => {
   beforeEach(() => {
     cy.visit('/', {
       auth: {
-        username: Cypress.env('username'),
-        password: Cypress.env('password')
+        username: Cypress.env('usernamePage'),
+        password: Cypress.env('passwordPage')
       }
     })
   })

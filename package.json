@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/RudnevaOlena/cypress-aqa#readme",
   "devDependencies": {
-    "cypress": "^15.14.0"
+    "cypress": "15.14.0"
   }
 }

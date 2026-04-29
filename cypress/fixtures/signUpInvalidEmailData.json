@@ -1,0 +1,45 @@
+{
+    "invalidEmails": [
+        {
+            "value": "test",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test@",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test.com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "@mail.com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test@@mail.com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test..mail@mail.com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test@mail..com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test@.com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": "test@com",
+            "error": "Email is incorrect"
+        },
+        {
+            "value": ".test@mail.com",
+            "error": "Email is incorrect"
+        }
+    ],
+    "requiredError": "Email required"
+}

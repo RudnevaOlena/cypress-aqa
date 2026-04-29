@@ -1,0 +1,14 @@
+{
+    "validUser": {
+        "name": "John",
+        "lastName": "Smith",
+        "email": "user_uniq@testmail.com",
+        "password": "Password1"
+    },
+    "invalidUser": {
+        "name": "",
+        "lastName": "",
+        "email": "bademail",
+        "password": "123"
+    }
+}
