@@ -73,5 +73,11 @@ class Header {
     getRegistrationModal() {
         return cy.get(this.registrationModal);
     }
+
+    //Open SignUp modal
+    openSignUpModal() {
+        this.getSignUp().click()
+    }
+
 }
 export default new Header();
