@@ -1,6 +1,8 @@
-class LoginModal {
+import BasePage from '../pages/basePage'
+class LoginModal extends BasePage {
 
     selectors = {
+        modal: 'app-signin-modal',
         modalTitle: '.modal-title',
         emailInput: '#signinEmail',
         passwordInput: '#signinPassword',
@@ -8,27 +10,27 @@ class LoginModal {
     }
 
     getEmailInput() {
-        return cy.get(this.selectors.emailInput);
+        return this.getElement(this.selectors.emailInput);
     }
 
     typeEmail(email) {
-        this.getEmailInput().clear().type(email);
+        this.type(this.selectors.emailInput, email);
     }
 
     getPasswordInput() {
-        return cy.get(this.selectors.passwordInput);
+        return this.getElement(this.selectors.passwordInput);
     }
 
     typePassword(password) {
-        this.getPasswordInput().clear().type(password);
+        this.type(this.selectors.passwordInput, password);
     }
 
     getLoginButton() {
-        return cy.get(this.selectors.loginButton);
+        return this.getElementWithin(this.selectors.modal, this.selectors.loginButton)
     }
 
     clickLogin() {
-        this.getLoginButton().click();
+        this.clickWithin(this.selectors.modal, this.selectors.loginButton)
     }
 
     login(user) {
@@ -38,5 +40,4 @@ class LoginModal {
     }
 
 }
-
 export default new LoginModal();

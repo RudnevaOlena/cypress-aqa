@@ -1,0 +1,34 @@
+{
+    "defaultCar": {
+        "brand": "Audi",
+        "model": "TT",
+        "mileage": 1000
+    },
+    "cars": [
+        {
+            "brand": "BMW",
+            "model": "X5",
+            "mileage": 1234
+        },
+        {
+            "brand": "Ford",
+            "model": "Fiesta",
+            "mileage": 5000
+        },
+        {
+            "brand": "Porsche",
+            "model": "Panamera",
+            "mileage": 777
+        },
+        {
+            "brand": "Fiat",
+            "model": "Punto",
+            "mileage": 321
+        }
+    ],
+    "invalid": {
+        "brand": "Audi",
+        "emptyMileage": "",
+        "negativeMileage": -10
+    }
+}

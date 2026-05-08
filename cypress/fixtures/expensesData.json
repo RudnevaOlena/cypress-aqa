@@ -1,0 +1,12 @@
+{
+  "defaultCar": {
+    "brand": "Audi",
+    "model": "TT",
+    "mileage": 1000
+  },
+  "expense": {
+    "liters": 20,
+    "totalCost": 500,
+    "newMileage": 2000
+  }
+}
