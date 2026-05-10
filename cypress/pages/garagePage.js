@@ -192,6 +192,50 @@ class GaragePage extends BasePage {
         this.shouldBeVisibleWithin(this.selectors.modal, this.selectors.modelDropdown)
         this.shouldBeVisibleWithin(this.selectors.modal, this.selectors.mileageInputModal)
     }
+
+    // ---- ACTIONS to Create a Car ----
+    addCar(carData) {
+        this.openAddCarModal()
+        this.selectBrand(carData.brand)
+        this.selectModel(carData.model)
+        this.typeMileage(carData.mileage)
+        this.clickAdd()
+    }
+
+    //---- Setup intercept for car creation ----
+    setupCarInterception() {
+        cy.intercept('POST', '**/api/cars').as('createCar')
+    }
+
+    //---- Wait for car creation and get ID ----
+    waitForCarCreationAndGetId() {
+        return cy.wait('@createCar').then((interception) => {
+            expect(interception.response.statusCode).to.equal(201)
+            const carId = interception.response.body.data.id
+            return carId
+        })
+    }
+    // ---- ACTIONS to Delete Car via API ----
+    deleteAllCarsViaAPI() {
+        return cy.getCarsViaAPI().then((response) => {
+            const cars = response.body.data
+            if (cars.length === 0) {
+                cy.log('No cars to delete')
+                return
+            }
+
+            cars.forEach((car) => {
+                cy.request({
+                    method: 'DELETE',
+                    url: `${Cypress.config('baseUrl')}api/cars/${car.id}`
+                }).then((deleteResponse) => {
+                    if (deleteResponse.status === 200) {
+                        cy.log(`Car ${car.id} deleted via API`)
+                    }
+                })
+            })
+        })
+    }
 }
 
 export default new GaragePage()
